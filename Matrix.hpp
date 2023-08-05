@@ -4,22 +4,25 @@
 # include <iostream>
 # include <vector>
 
-template<typename T>
+template<typename T = float>
 class Matrix {
 
 	public:
 
-		Vector( void );
-		Vector( Vector const & src );
-		~Vector( void );
+		typedef	std::vector<std::vector<T>> vvec;
 
-		Vector &	operator=( Vector const & rhs );
+		Matrix( Matrix const & src );
+		~Matrix( void );
+
+		Matrix &	operator=( Matrix const & rhs );
 
 
 	private:
 
-		std::vector<std::vector<T>>	_matrix;
-		int[2]						_size;
+		vvec	_matrix;
+		int		_rows;
+		int		_cols;
+		Matrix( void );
 
 };
 
